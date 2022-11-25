@@ -12,6 +12,7 @@ class MyHomePage extends GetView<MyHomePageContorller> {
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         key: _contorller.bottomNav,
+        index: controller.Countindex.value,
         items: [
           Icon(Icons.add, size: 25.sp),
           Icon(Icons.list, size: 25.sp),
@@ -22,8 +23,10 @@ class MyHomePage extends GetView<MyHomePageContorller> {
           print("controller.Countindex:::${_contorller.Countindex}");
         }),
       ),
-      body: Center(
-          child: Obx(() => controller.PageList[controller.Countindex.value])),
+      body: Center(child: Obx(() {
+        print("Pagelist中index的数值为:${controller.Countindex.value}");
+        return controller.PageList[controller.Countindex.value];
+      })),
     );
   }
 }

@@ -21,8 +21,10 @@ class MyApp extends StatelessWidget {
     var local = Get.deviceLocale;
     if (local.toString().startsWith('zh')) {
       Get.updateLocale(Locale('zh', 'CN'));
+    } else {
+      Get.updateLocale(Locale('en', 'US'));
     }
-    print("地址的信息为" + local.toString());
+    // print("地址的信息为" + local.toString());
     // const String title1 = '';
     // title1 = 'title'.tr!;
     return ScreenUtilInit(
@@ -31,6 +33,7 @@ class MyApp extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
           initialRoute: '/',
           translations: Messages(),
           locale: Locale('zh', 'CN'),
