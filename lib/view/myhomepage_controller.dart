@@ -7,7 +7,7 @@ import 'siftbookview/siftbookpage.dart';
 
 class MyHomePageContorller extends GetxController {
   GlobalKey<CurvedNavigationBarState> bottomNav = GlobalKey();
-  var Countindex = 0.obs;
+  var Countindex = 2.obs;
   List<Widget> PageList = [];
   @override
   void onInit() {
