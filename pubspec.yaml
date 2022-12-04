@@ -68,6 +68,14 @@ flutter:
   #   - images/a_dot_ham.jpeg
       - assets/images/head/men.png
       - assets/images/head/women.png
+      - assets/images/head/chenghao.png
+      - assets/images/head/fabu.png
+      - assets/images/head/fuli.png
+      - assets/images/head/huodong.png
+      - assets/images/head/kapai.png
+      - assets/images/head/liulanjilu.png
+      - assets/images/head/shoucang.png
+      - assets/images/head/zhuangban.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
