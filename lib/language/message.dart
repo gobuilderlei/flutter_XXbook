@@ -14,6 +14,8 @@ class Messages extends Translations {
           'isopend': "已开启",
           'isclosed': "已关闭",
           'auto_message_managment': "自动订阅管理",
+          'open_card_tile': "开通畅享卡",
+          'open_card_button': "享受多重服务>>"
         }, //中文
         'zh_CN': {
           'title1': "Flutter 测试界面",
@@ -25,6 +27,8 @@ class Messages extends Translations {
           'isopend': "已开启",
           'isclosed': "已关闭",
           'auto_message_managment': "自动订阅管理",
+          'open_card_tile': "开通畅享卡",
+          'open_card_button': "享受多重服务>>"
         }, //中文2号
         'en_US': {
           'title1': "Flutter Demo Home Page",
@@ -36,6 +40,8 @@ class Messages extends Translations {
           'isopend': "opend",
           'isclosed': "closed",
           'auto_message_managment': "Auto subscription Managment",
+          'open_card_tile': "Open card service",
+          'open_card_button': "For More Service>>",
         }, //英文
         'de_DE': {
           'title1': "Flutter demo homPaOne",
@@ -45,6 +51,8 @@ class Messages extends Translations {
           'isopend': "opend",
           'isclosed': "closed",
           'auto_message_managment': "Auto subscription Managment",
+          'open_card_tile': "Open card service",
+          'open_card_button': "For More Service>>",
         }, //德语
       };
 }

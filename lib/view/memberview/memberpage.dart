@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/rendering.dart';
 
+import 'head/member_head.dart';
+
 //这里有一个知识点
 //SliverConstraints constraints 获取到动态的相关数值
 //具体查阅 https://book.flutterchina.club/chapter6/sliver.html#_6-11-1-sliver-%E5%B8%83%E5%B1%80%E5%8D%8F%E8%AE%AE
@@ -20,10 +22,13 @@ class MemberPage extends StatelessWidget {
           // SafeArea(
           //   child:
           Container(
-              color: Colors.black12,
+              color: Color.fromARGB(31, 187, 185, 185),
               child: CustomScrollView(
-                physics: const BouncingScrollPhysics(
-                    parent: AlwaysScrollableScrollPhysics()),
+                physics: // ScrollPhysics(
+                    const BouncingScrollPhysics(
+                        //BouncingScrollPhysics or ClampingScrollPhysics
+                        // parent: AlwaysScrollableScrollPhysics()
+                        ),
                 slivers: [
                   _builderAppbar(), //画头部
                   // _builderBodytop(), //画身体
@@ -98,37 +103,44 @@ class MemberPage extends StatelessWidget {
 
   Widget _buildSliver(BuildContext context, SliverConstraints constraints) {
     var xxx = false;
-    print("打印他的数值:${constraints.remainingCacheExtent / 3}");
-
+    print("打印他的数值:${700.h - constraints.remainingCacheExtent / 3}");
+    // WidgetsBinding.instance.addPostFrameCallback( controller.headoffset.currentContext.findRenderObject() );
     return SliverToBoxAdapter(
-      child: Container(
-        padding: EdgeInsets.only(left: 25.r, right: 25.r),
-        // constraints: BoxConstraints.tight(Size(700.r, 450.h)),
-        height: constraints.remainingCacheExtent / 3,
-        child: Column(
-          // clipBehavior: Clip.antiAlias,
-          children: [
-            Container(
-              child: Image(
-                  image: _headImage(),
-                  width: 80.h,
-                  height: 80.h,
-                  fit: BoxFit.fill),
-            ),
-            Text("ssssss"),
-            Text("ssssss"),
-            Text("ssssss"),
-            Text("ssssss"),
-            Text("ssssss"),
-            Text("ssssss"),
-          ],
-        ),
-        decoration: BoxDecoration(
-            border: Border.all(width: 0.5, color: Colors.black12),
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(5.0), topRight: Radius.circular(5.0))),
+      child: MemberHeaderView(
+        // key: controller.headoffset,//本key 是用来获取坐标的.这里可以使用 Listener 来获取相关
+        //wiget的数据 ,具体可查看 https://zhuanlan.zhihu.com/p/85549830
+        contains_height:
+            700.h - (constraints.remainingCacheExtent / 3.3) <= 300.h
+                ? 300.h
+                : 700.h - (constraints.remainingCacheExtent / 3.3),
+        headimgpath: "assets/images/head/men.png",
+        ismen: true,
+        isnetwork: false,
+        username: "书友XXX2201",
+        userlevel: "5",
+        uservip: "普通会员",
+        usermoney: "185",
+        userjifen: 15,
+        postion_height: 600.h - (constraints.remainingCacheExtent / 3) <= 150.h
+            ? 150.h
+            : 600.h - (constraints.remainingCacheExtent / 3),
       ),
+      // Container(
+      //   padding: EdgeInsets.only(left: 25.r, right: 25.r),
+      //   // constraints: BoxConstraints.tight(Size(700.r, 450.h)),
+      //   height: constraints.remainingCacheExtent / 3,
+      //   child: Column(
+      //     // clipBehavior: Clip.antiAlias,
+      //     children: [
+
+      //     ],
+      //   ),
+      //   decoration: BoxDecoration(
+      //       border: Border.all(width: 0.5, color: Colors.black12),
+      //       color: Colors.white,
+      //       borderRadius: BorderRadius.only(
+      //           topLeft: Radius.circular(5.0), topRight: Radius.circular(5.0))),
+      // ),
     );
   }
 
@@ -148,7 +160,7 @@ class MemberPage extends StatelessWidget {
   Widget _builderAppbar() {
     return SliverAppBar(
       elevation: 2.0,
-      backgroundColor: Colors.black12,
+      backgroundColor: Color.fromARGB(31, 187, 185, 185),
       leading: InkWell(
         child: const Icon(
           Icons.compare_arrows_sharp,
