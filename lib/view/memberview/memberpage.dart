@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
+import 'package:flutter_xiaoshuo_mirw/view/memberview/body/member_listview_body.dart';
 import 'package:flutter_xiaoshuo_mirw/view/memberview/memberpage_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,8 +36,9 @@ class MemberPage extends StatelessWidget {
                   SliverLayoutBuilder(
                     builder: _buildSliver,
                   ),
-                  // _buildSliverList(),
+
                   MemberGridViewBody(),
+                  _buildSliverList(),
                 ],
               )
               // ),
@@ -47,28 +48,6 @@ class MemberPage extends StatelessWidget {
     );
   }
 
-  final List<Color> data = [
-    Colors.orange[50]!,
-    Colors.orange[100]!,
-    Colors.orange[200]!,
-    Colors.orange[300]!,
-    Colors.orange[400]!,
-    Colors.orange[500]!,
-    Colors.orange[600]!,
-    Colors.orange[700]!,
-    Colors.orange[800]!,
-    Colors.orange[900]!,
-    Colors.orange[50]!,
-    Colors.orange[100]!,
-    Colors.orange[200]!,
-    Colors.orange[300]!,
-    Colors.orange[400]!,
-    Colors.orange[500]!,
-    Colors.orange[600]!,
-    Colors.orange[700]!,
-    Colors.orange[800]!,
-    Colors.orange[900]!,
-  ];
   List<Widget> _buildActions() => <Widget>[
         IconButton(
           onPressed: () {},
@@ -83,24 +62,13 @@ class MemberPage extends StatelessWidget {
       "#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}";
 
   Widget _buildSliverList() => SliverFixedExtentList(
-        itemExtent: 50,
+        itemExtent: 65.h,
         delegate: SliverChildBuilderDelegate(
-            (_, int index) => Container(
-                  alignment: Alignment.center,
-                  width: 100,
-                  height: 60,
-                  color: data[index],
-                  child: Text(
-                    colorString(data[index]),
-                    style: const TextStyle(color: Colors.white, shadows: [
-                      Shadow(
-                          color: Colors.black,
-                          offset: Offset(.5, .5),
-                          blurRadius: 2)
-                    ]),
-                  ),
-                ),
-            childCount: data.length),
+            (_, int index) => MemberListViewBody(
+                ontap1: controller.listbuton[index]['ontap'],
+                image: controller.listbuton[index]['tubiao'],
+                namepa: controller.listbuton[index]['title']),
+            childCount: controller.listbuton.length),
       );
 
   Widget _buildSliver(BuildContext context, SliverConstraints constraints) {

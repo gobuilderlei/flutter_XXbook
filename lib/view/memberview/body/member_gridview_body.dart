@@ -88,8 +88,11 @@ class MemberGridViewBody extends StatelessWidget {
     for (int j = 0; j < viewchild1.length; j++) {
       viewchild.add(
         InkWell(
-          child: Column(
-            children: [viewchild1[j], viewchild2[j]],
+          child: Container(
+            color: Colors.white,
+            child: Column(
+              children: [viewchild1[j], viewchild2[j]],
+            ),
           ),
           onTap: gridview_ontap[j],
         ),
